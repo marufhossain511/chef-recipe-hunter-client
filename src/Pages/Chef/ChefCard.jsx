@@ -1,13 +1,12 @@
 import React from 'react';
 import { FaThumbsUp } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-
 const ChefCard = ({data}) => {
     // console.log(data);
     const {id,likes,chef_picture,chef_name,years_of_experience,number_of_recipes}=data
     return (
         <div>
-            <div className="card h-full w-full bg-base-300  shadow-xl">
+            <div className="card h-full w-full bg-base-300  shadow-xl"> 
                 <figure className='h-72'><img className='' src={chef_picture} /></figure>
                 <div className="card-body text-white">
                     <h2 className="card-title">{chef_name}</h2>
