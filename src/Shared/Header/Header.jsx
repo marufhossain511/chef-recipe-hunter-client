@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 
 const Header = () => {
-  const {user,photo,logOut}=useContext(AuthContext)
+  const {user,photo,logOut,name}=useContext(AuthContext)
 
   const handleLogout=(e)=>{
     logOut()
@@ -19,8 +19,8 @@ const Header = () => {
             </div>
             <div className="flex-none">
                 <div className="dropdown dropdown-end">
-                 <Link className='mr-2 text-white '>Home</Link>
-                 <Link className='mr-2 text-white '>Blog</Link>
+                 <Link to="/" className='mr-2 text-white '>Home</Link>
+                 <Link to="/blog" className='mr-2 text-white '>Blog</Link>
                 {user? <button onClick={handleLogout} className='btn bg-lime-500 text-white'>Logout</button>
                  :<Link to="/login" className='mx-3'><button className='btn bg-lime-500 text-white'>Login</button></Link>
                  }
@@ -29,7 +29,7 @@ const Header = () => {
                 <div className="dropdown dropdown-end">
                
                     {user && <div className="w-10 rounded-full">
-                    <img className='rounded-full w-10 h-10' src={photo}/>
+                    <img className='rounded-full w-10 h-10 tooltip'src={photo}/>
                     </div>}
                 </div>
             </div>
