@@ -7,6 +7,7 @@ const auth = getAuth(app)
 const AuthProvider = ({children}) => {
   const [user,setUser]=useState(null)
   const [photo,setPhoto]=useState('')
+  const [loading,setLoading]=useState(true)
   console.log(photo);
 
    const signUp=(name,email,password,photo)=>{
@@ -25,6 +26,7 @@ const AuthProvider = ({children}) => {
    useEffect(()=>{
     const subscribe = onAuthStateChanged(auth, currentUser => {
         setUser(currentUser);
+        setLoading(false)
     })
     return () => {
         return subscribe();
@@ -38,7 +40,8 @@ const AuthProvider = ({children}) => {
           signUp,
           login,
           photo,
-          logOut
+          logOut,
+          loading
     }
 
     return <AuthContext.Provider value={authInfo}>
