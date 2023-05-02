@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 
 const Header = () => {
@@ -15,14 +15,14 @@ const Header = () => {
         <div>
             <div className="navbar bg-neutral text-neutral-content">
             <div className="flex-1">
-                <Link><h2 className='text-lime-500 text-2xl font-normal'>Al-Faham</h2></Link>
+                <NavLink><h2 className='text-primary text-2xl font-bold'>Al-Faham</h2></NavLink>
             </div>
             <div className="flex-none">
                 <div className="dropdown dropdown-end">
-                 <Link to="/" className='mr-2 text-white '>Home</Link>
-                 <Link to="/blog" className='mr-2 text-white '>Blog</Link>
-                {user? <button onClick={handleLogout} className='btn bg-lime-500 text-white'>Logout</button>
-                 :<Link to="/login" className='mx-3'><button className='btn bg-lime-500 text-white'>Login</button></Link>
+                 <NavLink to="/"  className={({ isActive }) => (isActive ? " text-info mr-2 rounded" : "mr-2 rounded text-white")}>Home</NavLink>
+                 <NavLink to="/blog" className={({ isActive }) => (isActive ? " text-info mr-2 rounded" : "mr-2 rounded text-white")}>Blog</NavLink>
+                {user? <button onClick={handleLogout} className='btn btn-outline bg-primary text-white'>Logout</button>
+                 :<NavLink to="/login" className='mx-3'><button className='btn btn-outline bg-primary text-white'>Login</button></NavLink>
                  }
                 
                 </div>

@@ -20,7 +20,7 @@ const SpecialRecipe = ({data}) => {
                 </div>
                 <p>Details: {recipe_details}</p>
                 <div className="card-actions justify-end">
-                <button onClick={handleFavorite} className="btn text-white bg-lime-700 border-none" disabled={disable}>Favorite</button>
+                <button onClick={handleFavorite} className="btn text-white bg-accent-focus border-none" disabled={disable}>Favorite</button>
                 </div>
             </div>
             </div>

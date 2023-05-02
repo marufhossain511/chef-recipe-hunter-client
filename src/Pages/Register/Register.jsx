@@ -91,15 +91,15 @@ const Register = () => {
                     
                     
                     <div className="form-control mt-6">
-                    <button className="btn bg-lime-700 text-white">Register</button>
+                    <button className="btn bg-accent-focus text-white">Register</button>
                     </div>
                     <p className='text-red-400'><small>{error}</small></p>
                 </form>
                 </div>
-            <button onClick={handleGoogleLogin} className="bg-slate-600 hover:bg-slate-700 flex items-center text-white font-bold py-2 px-10 rounded-lg">
+            <button onClick={handleGoogleLogin} className="bg-accent-focus hover:bg-slate-700 flex items-center text-white font-bold py-2 px-10 rounded-lg">
               <FaGoogle className='mr-2'/> Continue with Google
             </button>
-            <button onClick={handleGitHubLogin} className="bg-slate-600 flex items-center hover:bg-slate-700 text-white font-bold py-2 px-10 rounded-lg">
+            <button onClick={handleGitHubLogin} className="bg-accent-focus flex items-center hover:bg-slate-700 text-white font-bold py-2 px-10 rounded-lg">
              <FaGithub className='mr-2'/> Continue with GitHub
             </button>
             </div>

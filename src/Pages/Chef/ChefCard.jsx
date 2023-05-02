@@ -14,7 +14,7 @@ const ChefCard = ({data}) => {
                     <p>Numbers of Recipes: {number_of_recipes}</p>
                     <p className='flex items-center'>Likes: {likes} <FaThumbsUp className='ml-2'/></p>
                     <div className="card-actions justify-end">
-                    <Link to={`/recipes/${id}`}><button className="btn bg-lime-700 text-white">View Recipes</button></Link>
+                    <Link to={`/recipes/${id}`}><button className="btn bg-accent-focus text-white">View Recipes</button></Link>
                     </div>
                 </div>
             </div>
