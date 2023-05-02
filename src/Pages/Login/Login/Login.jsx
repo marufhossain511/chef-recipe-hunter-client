@@ -6,7 +6,7 @@ import { AuthContext } from '../../../Provider/AuthProvider';
 const Login = () => {
     const [error,setError]=useState('')
 
-    const {login}=useContext(AuthContext)
+    const {login,googleLogin,gitHubLogin}=useContext(AuthContext)
     const location=useLocation()
     const from=location.state?.from?.pathname ||'/'
     const navigate=useNavigate()
@@ -31,6 +31,32 @@ const Login = () => {
             console.log(err);
             setError(err.message)
         })
+    }
+
+    const handleGoggleSignIn=(e)=>{
+        e.preventDefault()
+        googleLogin()
+        .then((result)=>{
+            const signedUser=result.user
+            console.log(signedUser);
+            navigate(from,{replace:true})
+        })
+        .catch((err)=>{
+            console.log(err.message);
+        })
+    }
+
+    const handleGitHubLogin=(e)=>{
+       e.preventDefault()
+       gitHubLogin()
+       .then((result)=>{
+        const gitHubUser=result.user
+        console.log(gitHubUser);
+        navigate(from,{replace:true})
+       })
+       .then((err)=>{
+        console.log(err.message);
+       })
     }
 
     return (
@@ -63,11 +89,11 @@ const Login = () => {
                     <p className='text-red-500'><small>{error}</small></p>
                 </form>
                 </div>
-            <button className="bg-slate-600 hover:bg-slate-700 flex items-center text-white font-bold py-2 px-10 rounded-lg">
-              <FaGoogle className='mr-2'/> Sign in with Google
+            <button onClick={handleGoggleSignIn} className="bg-slate-600 hover:bg-slate-700 flex items-center text-white font-bold py-2 px-10 rounded-lg">
+              <FaGoogle className='mr-2'/> Continue with Google
             </button>
-            <button className="bg-slate-600 flex items-center hover:bg-slate-700 text-white font-bold py-2 px-10 rounded-lg">
-             <FaGithub className='mr-2'/> Sign in with GitHub
+            <button onClick={handleGitHubLogin} className="bg-slate-600 flex items-center hover:bg-slate-700 text-white font-bold py-2 px-10 rounded-lg">
+             <FaGithub className='mr-2'/> Continue with GitHub
             </button>
             </div>
             </div>

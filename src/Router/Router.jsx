@@ -19,7 +19,7 @@ const router =createBrowserRouter([
             {
                 path:'/',
                 element:<Home></Home>,
-                loader:()=>fetch('http://localhost:5000/data')
+                loader:()=>fetch('https://assignment-10-server-marufhossain511.vercel.app/data')
             },
             {
                 path:'/login',
@@ -32,7 +32,7 @@ const router =createBrowserRouter([
             {
                 path:'/recipes/:id',
                 element:<PrivateRoute><ChefRecipes></ChefRecipes></PrivateRoute>,
-                loader:({params})=> fetch(`http://localhost:5000/data/${params.id}`)
+                loader:({params})=> fetch(`https://assignment-10-server-marufhossain511.vercel.app/data/${params.id}`)
             },
             {
                 path:'/contact',

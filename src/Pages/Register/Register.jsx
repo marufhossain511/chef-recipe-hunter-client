@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 
 const Register = () => {
-  const{signUp}=useContext(AuthContext)
+  const{signUp,googleLogin,gitHubLogin}=useContext(AuthContext)
   const[error,setError]=useState('')
     const handleRegister=(e)=>{
         e.preventDefault()
@@ -27,6 +27,30 @@ const Register = () => {
         .catch((err)=>{
             console.log(err.message);
             setError(err.message)
+        })
+    }
+
+    const handleGoogleLogin=(e)=>{
+        e.preventDefault()
+        googleLogin()
+        .then((result)=>{
+            const signedUser=result.user
+            console.log(signedUser);
+        })
+        .catch((err)=>{
+            console.log(err.message);
+        })
+    }
+
+    const handleGitHubLogin=(e)=>{
+        e.preventDefault()
+        gitHubLogin()
+        .then((result)=>{
+            const githubUser=result.user
+            console.log(githubUser);
+        })
+        .catch((err)=>{
+            console.log(err.message);
         })
     }
 
@@ -72,11 +96,11 @@ const Register = () => {
                     <p className='text-red-400'><small>{error}</small></p>
                 </form>
                 </div>
-            <button className="bg-slate-600 hover:bg-slate-700 flex items-center text-white font-bold py-2 px-10 rounded-lg">
-              <FaGoogle className='mr-2'/> SignUp with Google
+            <button onClick={handleGoogleLogin} className="bg-slate-600 hover:bg-slate-700 flex items-center text-white font-bold py-2 px-10 rounded-lg">
+              <FaGoogle className='mr-2'/> Continue with Google
             </button>
-            <button className="bg-slate-600 flex items-center hover:bg-slate-700 text-white font-bold py-2 px-10 rounded-lg">
-             <FaGithub className='mr-2'/> SignUp with GitHub
+            <button onClick={handleGitHubLogin} className="bg-slate-600 flex items-center hover:bg-slate-700 text-white font-bold py-2 px-10 rounded-lg">
+             <FaGithub className='mr-2'/> Continue with GitHub
             </button>
             </div>
             </div>
