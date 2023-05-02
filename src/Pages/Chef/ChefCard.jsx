@@ -3,7 +3,7 @@ import { FaThumbsUp } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const ChefCard = ({data}) => {
-    console.log(data);
+    // console.log(data);
     const {id,likes,chef_picture,chef_name,years_of_experience,number_of_recipes}=data
     return (
         <div>

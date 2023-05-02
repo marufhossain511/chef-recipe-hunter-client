@@ -2,10 +2,12 @@ import React from 'react';
 import Banner from '../Banner/Banner';
 import { useLoaderData } from 'react-router-dom';
 import ChefCard from '../Chef/ChefCard';
+import ClientFeedback from './ClientFeedback/ClientFeedback';
+import Contact from './ContactUs/Contact';
 
 const Home = () => {
     const chefData=useLoaderData()
-    console.log(chefData);
+    // console.log(chefData);
     return (
         <div>
             <Banner></Banner>
@@ -18,6 +20,12 @@ const Home = () => {
                     data={data}
                     ></ChefCard>)
                 }
+          </div>
+          <div className='my-6'>
+            <ClientFeedback></ClientFeedback>
+          </div>
+          <div className='my-6'>
+             <Contact></Contact>
           </div>
         </div>
     );
