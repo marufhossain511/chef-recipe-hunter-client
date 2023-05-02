@@ -3,8 +3,14 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 
 const Header = () => {
-  const {user,photo}=useContext(AuthContext)
-  console.log(user);
+  const {user,photo,logOut}=useContext(AuthContext)
+
+  const handleLogout=(e)=>{
+    logOut()
+    .then(()=>{})
+    .catch((err)=>console.log(err))
+  }
+
     return (
         <div>
             <div className="navbar bg-neutral text-neutral-content">
@@ -15,7 +21,7 @@ const Header = () => {
                 <div className="dropdown dropdown-end">
                  <Link className='mr-2 text-white '>Home</Link>
                  <Link className='mr-2 text-white '>Blog</Link>
-                {user? <button className='btn bg-lime-500 text-white'>Logout</button>
+                {user? <button onClick={handleLogout} className='btn bg-lime-500 text-white'>Logout</button>
                  :<Link to="/login" className='mx-3'><button className='btn bg-lime-500 text-white'>Login</button></Link>
                  }
                 

@@ -19,7 +19,7 @@ const AuthProvider = ({children}) => {
    }
 
    const logOut=()=>{
-    return signOut()
+    return signOut(auth)
    }
 
    useEffect(()=>{
@@ -37,7 +37,8 @@ const AuthProvider = ({children}) => {
           user,
           signUp,
           login,
-          photo
+          photo,
+          logOut
     }
 
     return <AuthContext.Provider value={authInfo}>

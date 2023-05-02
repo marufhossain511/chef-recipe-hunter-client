@@ -3,6 +3,7 @@ import Main from "../Layout/Main";
 import Login from "../Pages/Login/Login/Login";
 import Register from "../Pages/Register/Register";
 import Banner from "../Pages/Banner/Banner";
+import Home from "../Pages/Home/Home";
 
 const router =createBrowserRouter([
     {
@@ -11,7 +12,8 @@ const router =createBrowserRouter([
         children:[
             {
                 path:'/',
-                element:<Banner></Banner>
+                element:<Home></Home>,
+                loader:()=>fetch('http://localhost:5000/data')
             },
             {
                 path:'/login',
