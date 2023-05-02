@@ -10,7 +10,7 @@ const ClientFeedback = () => {
         .then(res=>res.json())
         .then(data=>setFeedbacks(data))
     },[])
-    console.log(feedbacks);
+    // console.log(feedbacks);
 
     return (
         <div>

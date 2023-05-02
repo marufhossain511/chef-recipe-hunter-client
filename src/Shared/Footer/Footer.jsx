@@ -12,7 +12,6 @@ const Footer = () => {
         <ul className="flex space-x-4">
           <li>
             <Link
-              href="#"
               className=" hover:text-orange-500 transition duration-150 ease-in-out"
             >
               About Us
@@ -20,6 +19,7 @@ const Footer = () => {
           </li>
           <li>
             <Link
+            to='/contact'
               className=" hover:text-orange-500 transition duration-150 ease-in-out"
             >
               Contact Us
