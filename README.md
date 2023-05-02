@@ -3,3 +3,5 @@
 * Login and Registration page is provided , no one can view recipe without login 
 * A contact form has been provided , where he can contact through email
 * A blog page is provided where some questions are answered
+
+* Live link : https://assignment-10-chef-recipie.firebaseapp.com/
